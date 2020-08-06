@@ -1,7 +1,6 @@
 # DEVOPS_TASK3
 
 This task describes Complete Automation of Deploying Web Application on top of kubernetes using Jenkins
-# devopstask3
 
 ## TASK DESCRIPTION:
 
