@@ -7,6 +7,8 @@ This task describes Complete Automation of Deploying Web Application on top of k
 
 ## 1. Create container image that’s has Jenkins installed using dockerfile Or You can use the Jenkins Server on RHEL 8/7
 
+https://github.com/sahanabalappa/DEVOPS_TASK3/blob/master/Dockerfile%20of%20jenkins.txt
+
 ## 2. When we launch this image, it should automatically starts Jenkins service in the container.
 
 ## 3. Create a job chain of job1, job2, job3 and job4 using build pipeline plugin in Jenkins
@@ -19,6 +21,8 @@ This task describes Complete Automation of Deploying Web Application on top of k
 
 ## Job3 : Test your app if it is working or not.
 ## Job4 : if app is not working , then send email to developer with error messages and redeploy the application after code is being edited by the developer
+
+https://github.com/sahanabalappa/DEVOPS_TASK3/blob/master/Mail.py
 
 
 
