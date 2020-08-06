@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: html-svc
+  labels:
+    name: html-svc
+spec:
+  selector:
+    name: html-pod
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30000
+  type: NodePort
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: html-app
+  labels:
+    name: html-app
+    env: html-testing
+spec:
+  replicas: 1
+  selector:
+    matchExpressions:
+    - { key: name, operator: In , values: [ html-pod ] }
+  template:
+    metadata:
+      name: html-pod
+      labels:
+        name: html-pod
+    spec:
+      containers:
+      - name: html-container
+        image: vimal13/apache-webserver-php
+        volumeMounts:
+        - name: htmllogs
+          mountPath: /var/log/httpd/
+        - name: htmlstorage
+          mountPath: /var/www/html/
+      volumes:
+      - name: htmllogs
+        persistentVolumeClaim:
+          claimName: html-log-pvc
+      - name: htmlstorage
+        persistentVolumeClaim:
+          claimName: html-pvc
